@@ -1,11 +1,13 @@
 package com.gyrs.avoqr.data
 
-import androidx.appcompat.widget.AppCompatImageView
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class AvocadoData(
-    val image : AppCompatImageView? = null,
+    val imageResource : Int?,
     val title : String,
     val content : String,
-)
+) : Parcelable
 {
 }

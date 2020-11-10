@@ -5,9 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.gyrs.avoqr.R
 import com.gyrs.avoqr.data.AvocadoData
 import kotlinx.android.synthetic.main.recycler_item_list.view.*
@@ -38,15 +40,19 @@ class AvocadoListAdapter (private val interaction: Interaction? = null)
     inner class AvocadoItemViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
         fun bind(item: AvocadoData) = with(itemView){
+            Glide.with(this).load(item.imageResource).into(itemView.imageRecyclerItem)
             itemView.titleRecyclerItem.text = item.title
             itemView.textDescRecyclerItem.text = item.content
+
+            itemView.imageRecyclerItem.transitionName = "image ${item.title}"
+            itemView.titleRecyclerItem.transitionName = item.title
 
             itemView.setOnClickListener {
                 interaction?.onItemSelected(
                     adapterPosition,
                     item,
-                    itemView.imageRecyclerItem,
-                    itemView.textDescRecyclerItem
+                    imageRecyclerItem,
+                    titleRecyclerItem
                 )
             }
         }
@@ -66,7 +72,7 @@ class AvocadoListAdapter (private val interaction: Interaction? = null)
     val differ = AsyncListDiffer(this, differCallBack)
 
     interface Interaction {
-        fun onItemSelected(position: Int, item: AvocadoData, image : ImageView, title : TextView)
+        fun onItemSelected(position: Int, item: AvocadoData, image : AppCompatImageView, title : TextView)
     }
 
 }

@@ -42,16 +42,19 @@ class MainActivity : AppCompatActivity() {
         navControler
             .addOnDestinationChangedListener{_, destination,_ ->
                 when(destination.id){
-                    R.id.loginFragment -> {
+                    R.id.loginFragment, -> {
                         bottom_nav.visibility = View.GONE
                         toolBar.visibility = View.GONE
+                    }
+                    R.id.detailsFragment ->{
+                        bottom_nav.visibility = View.GONE
                     }
                     else -> {
                         bottom_nav.visibility = View.VISIBLE
                         toolBar.visibility = View.VISIBLE
 
                         if (destination.id == R.id.homeFragment || destination.id == R.id.cameraFragment) {
-                            navControler.popBackStack()
+                            //navControler.popBackStack()
                         }
                     }
                 }

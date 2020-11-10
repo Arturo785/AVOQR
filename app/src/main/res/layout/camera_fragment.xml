@@ -7,17 +7,21 @@
     tools:context=".ui.fragments.CameraFragment">
 
 
-    <TextView
-        android:id="@+id/textViewHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CAMERA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+    <SurfaceView
+        android:id="@+id/surface_camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/qr_square_code"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </ImageView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
