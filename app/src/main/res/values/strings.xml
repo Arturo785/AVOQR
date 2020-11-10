@@ -5,4 +5,6 @@
     <string name="email">email</string>
     <string name="scan">Scan_menu</string>
     <string name="home">home_menu</string>
+    <string name="titleDemo">Title</string>
+    <string name="dummy_message">dummy message</string>
 </resources>

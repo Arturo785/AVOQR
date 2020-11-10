@@ -49,6 +49,10 @@ class MainActivity : AppCompatActivity() {
                     else -> {
                         bottom_nav.visibility = View.VISIBLE
                         toolBar.visibility = View.VISIBLE
+
+                        if (destination.id == R.id.homeFragment || destination.id == R.id.cameraFragment) {
+                            navControler.popBackStack()
+                        }
                     }
                 }
             }
