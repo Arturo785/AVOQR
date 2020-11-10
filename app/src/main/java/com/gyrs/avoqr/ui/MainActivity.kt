@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         navControler = navHostFragment.findNavController()
 
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.loginFragment, R.id.cameraFragment)
+            setOf(R.id.cameraFragment, R.id.homeFragment)
         )
 
         setSupportActionBar(toolBar)
@@ -39,7 +39,20 @@ class MainActivity : AppCompatActivity() {
 
         bottom_nav.setupWithNavController(navControler)
 
-        hideUI()
+        navControler
+            .addOnDestinationChangedListener{_, destination,_ ->
+                when(destination.id){
+                    R.id.loginFragment -> {
+                        bottom_nav.visibility = View.GONE
+                        toolBar.visibility = View.GONE
+                    }
+                    else -> {
+                        bottom_nav.visibility = View.VISIBLE
+                        toolBar.visibility = View.VISIBLE
+                    }
+                }
+            }
+
     }
 
 
@@ -47,8 +60,8 @@ class MainActivity : AppCompatActivity() {
         return item.onNavDestinationSelected(navControler) || super.onOptionsItemSelected(item)
     }
 
-    private fun hideUI(){
-        toolBar.visibility = View.GONE
-        bottom_nav.visibility = View.GONE
+    override fun onSupportNavigateUp(): Boolean {
+        return navControler.navigateUp() || super.onSupportNavigateUp()
     }
+
 }

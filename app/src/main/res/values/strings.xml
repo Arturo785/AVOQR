@@ -3,4 +3,6 @@
     <string name="hint_password">Password</string>
     <string name="login">Login</string>
     <string name="email">email</string>
+    <string name="scan">Scan_menu</string>
+    <string name="home">home_menu</string>
 </resources>
