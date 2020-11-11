@@ -60,6 +60,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+        bottom_nav.setOnNavigationItemReselectedListener {
+            // do nothing
+        }
+
     }
 
 

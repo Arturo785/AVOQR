@@ -103,14 +103,18 @@ class HomeFragment : Fragment(), AvocadoListAdapter.Interaction {
         title: TextView
     ) {
        // Snackbar.make(requireView(), "CLICKED ${position}", Snackbar.LENGTH_LONG).show()
-        val direction : NavDirections = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(item)
+        if (findNavController().currentDestination?.id == R.id.homeFragment) {
 
-        val extras = FragmentNavigatorExtras(
-            image to "image ${item.title}",
-            title to item.title
-        )
+            val direction: NavDirections =
+                HomeFragmentDirections.actionHomeFragmentToDetailsFragment(item)
 
-        findNavController().navigate(direction, extras)
+            val extras = FragmentNavigatorExtras(
+                image to "image ${item.title}",
+                title to item.title
+            )
+
+            findNavController().navigate(direction, extras)
+        }
 
     }
 

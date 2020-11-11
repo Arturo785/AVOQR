@@ -26,7 +26,13 @@
         android:id="@+id/cameraFragment"
         android:name="com.gyrs.avoqr.ui.fragments.CameraFragment"
         android:label="Camera"
-        tools:layout="@layout/camera_fragment" />
+        tools:layout="@layout/camera_fragment" >
+        <action
+            android:id="@+id/action_cameraFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            />
+
+    </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
@@ -65,4 +71,5 @@
         android:name="com.gyrs.avoqr.ui.fragments.AddFragment"
         android:label="Add"
         tools:layout="@layout/add_fragment" />
+
 </navigation>
