@@ -41,6 +41,14 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_homeFragment_to_addFragment"
+            app:destination="@id/addFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
 
     <fragment
@@ -52,4 +60,9 @@
             android:name="dataAvocadoPassed"
             app:argType="com.gyrs.avoqr.data.AvocadoData" />
     </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.gyrs.avoqr.ui.fragments.AddFragment"
+        android:label="Add"
+        tools:layout="@layout/add_fragment" />
 </navigation>

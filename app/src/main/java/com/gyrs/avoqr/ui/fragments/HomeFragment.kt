@@ -19,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.gyrs.avoqr.R
 import com.gyrs.avoqr.data.AvocadoData
 import com.gyrs.avoqr.utils.AvocadoListAdapter
+import com.gyrs.avoqr.utils.SimulatedData
 import com.gyrs.avoqr.utils.TopSpacingItemDecoration
 import kotlinx.android.synthetic.main.home_fragment.*
 import kotlin.random.Random
@@ -47,8 +48,15 @@ class HomeFragment : Fragment(), AvocadoListAdapter.Interaction {
 
         recycler = recycler_main
 
-        val list = mockData()
+        //val list = mockData()
+        val list = SimulatedData.generateData()
+
         initAdapter(list)
+
+        fabAdd.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToAddFragment()
+            findNavController().navigate(action)
+        }
 
         postponeEnterTransition()
 

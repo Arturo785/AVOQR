@@ -42,7 +42,8 @@ class AvocadoListAdapter (private val interaction: Interaction? = null)
         fun bind(item: AvocadoData) = with(itemView){
             Glide.with(this).load(item.imageResource).into(itemView.imageRecyclerItem)
             itemView.titleRecyclerItem.text = item.title
-            itemView.textDescRecyclerItem.text = item.content
+            val allText = item.content.split(",")
+            itemView.textDescRecyclerItem.text = allText[0]
 
             itemView.imageRecyclerItem.transitionName = "image ${item.title}"
             itemView.titleRecyclerItem.transitionName = item.title

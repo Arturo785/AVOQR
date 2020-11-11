@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                         bottom_nav.visibility = View.GONE
                         toolBar.visibility = View.GONE
                     }
-                    R.id.detailsFragment ->{
+                    R.id.detailsFragment, R.id.addFragment ->{
                         bottom_nav.visibility = View.GONE
                     }
                     else -> {

@@ -46,9 +46,27 @@ class DetailsFragment : Fragment() {
 
         Glide.with(this).load(args.dataAvocadoPassed.imageResource).into(imageList)
         title.text = args.dataAvocadoPassed.title
-        about_detail_text_view.text = getString(R.string.dummy_text)
 
-          imageList.transitionName = "image ${args.dataAvocadoPassed.title}"
-          title.transitionName = args.dataAvocadoPassed.title
+
+        imageList.transitionName = "image ${args.dataAvocadoPassed.title}"
+        title.transitionName = args.dataAvocadoPassed.title
+
+        fillData()
+
+    }
+
+    private fun fillData(){
+        val dataPassed = args.dataAvocadoPassed.content.split(",")
+        //"Los arrollo,Arrollo,fsdsjd425f,CD Guzman,31423554,Lote 1,Jazz,30kg,cajas:1"
+
+        about_detail_text_view1.text = "Company:    ${dataPassed[0]}"
+        about_detail_text_view2.text = "Name of productor:    ${dataPassed[1]}"
+        about_detail_text_view3.text = "RFC:    ${dataPassed[2]}"
+        about_detail_text_view4.text = "Address:    ${dataPassed[3]}"
+        about_detail_text_view5.text = "Contact info:    ${dataPassed[4]}"
+        about_detail_text_view6.text = "Batch:    ${dataPassed[5]}"
+        about_detail_text_view7.text = "Variety:    ${dataPassed[6]}"
+        about_detail_text_view8.text = "Weight:    ${dataPassed[7]}"
+        about_detail_text_view9.text = "Quantity:    ${dataPassed[8]}"
     }
 }
